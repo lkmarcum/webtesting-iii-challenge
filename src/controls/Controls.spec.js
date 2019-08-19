@@ -28,4 +28,16 @@ describe("<Controls />", () => {
     fireEvent.click(getByText(/lock gate/i));
     expect(mockFunc).toHaveBeenCalled();
   });
+
+  it("changes text on buttons based on open/unlocked props", () => {
+    const { queryByText } = render(<Controls locked={false} closed={false} />);
+    expect(queryByText(/close gate/i)).toBeTruthy();
+    expect(queryByText(/lock gate/i)).toBeTruthy();
+  });
+
+  it("changes text on buttons based on closed/locked props", () => {
+    const { queryByText } = render(<Controls locked={true} closed={true} />);
+    expect(queryByText(/open gate/i)).toBeTruthy();
+    expect(queryByText(/unlock gate/i)).toBeTruthy();
+  });
 });
