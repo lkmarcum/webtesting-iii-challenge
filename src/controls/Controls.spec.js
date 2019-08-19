@@ -40,4 +40,9 @@ describe("<Controls />", () => {
     expect(queryByText(/open gate/i)).toBeTruthy();
     expect(queryByText(/unlock gate/i)).toBeTruthy();
   });
+
+  //   it("disables 'close' button if locked=true", () => {
+  //     const { getByText } = render(<Controls locked={true} closed={true} />);
+  //     expect(getByText(/open gate/i)).toHaveAttribute("disabled");
+  //   });
 });
